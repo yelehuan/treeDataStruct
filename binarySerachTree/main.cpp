@@ -20,6 +20,8 @@ int main(int argc, char** argv)
 	cout << endl;
 	cout << "min: " << st.findMin() << endl;
 	cout << "max: " << st.findMax() << endl;
+	st.remove('g');
 	
+	st.printTree();	
 	return 0;
 }

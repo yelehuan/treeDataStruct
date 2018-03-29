@@ -68,6 +68,7 @@ private:
 	bool contains(const char& item, TreeNode* root) const;
 	TreeNode* findMin(TreeNode* root) const;
 	TreeNode* findMax(TreeNode* root) const;
+	void remove(const char& item, TreeNode* &root);
 };
 
 class ExpressionTree : public TreeBase {

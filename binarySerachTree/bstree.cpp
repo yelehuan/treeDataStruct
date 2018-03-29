@@ -225,9 +225,30 @@ void BiSerachTree::insert(const char& data)
 	insert(data, mRoot);
 }
 
+void BiSerachTree::remove(const char& item, TreeNode* &root)
+{
+	if (root == NULL)
+		return;
+	char data = root->data();
+	if (item < data) {
+		remove(item, root->mLeftChild);
+	} else if (data < item) {
+		remove(item, root->mRightChild);
+	} else {
+		if (root->mLeftChild != NULL && root->mRightChild != NULL) {
+			root->mData = findMin(root->mRightChild)->data();	
+			remove(root->mData, root->mRightChild);
+		} else {
+			TreeNode* oldNode = root;
+			root = (root->mLeftChild != NULL) ? root->mLeftChild : root->mRightChild;
+			delete oldNode;
+		}
+	}
+}
+
 void BiSerachTree::remove(const char& data)
 {
-
+	remove(data, mRoot);
 }
 
 
